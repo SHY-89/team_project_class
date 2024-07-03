@@ -11,13 +11,13 @@ class Member:
 
 # Post 클래스
 class Post(Member):
-    def __init__(self, title, content, username):
+    def __init__(self, title, content, author):
         self.title = title
         self.content = content
-        super().__init__(username)
-
+        self.author= author
+        
     def display(self):
-        print(f'작성자: {self.username} \n제목: {self.title} \n내용: {self.content}')
+        print(f'작성자: {self.author} \n제목: {self.title} \n내용: {self.content}')
 
 
 # ----- 코드 실행 ------
