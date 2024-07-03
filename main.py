@@ -34,15 +34,15 @@ members = [
 ]
 
 posts = [
-    Post("text", "text.", "김한규"),
-    Post("text", "text.", "김한규"),
-    Post("text", "text.", "김한규"),
-    Post("text", "text.", "서영환"),
-    Post("text", "text.", "서영환"),
-    Post("text", "text.", "서영환"),
-    Post("text", "text.", "김동민"),
-    Post("text", "text.", "김동민"),
-    Post("text", "text.", "김동민")
+    Post("text1", "text.", "kim1"),
+    Post("text2", "text.", "kim1"),
+    Post("text3", "text.", "kim1"),
+    Post("text4", "text.", "seo1"),
+    Post("text5", "text.", "seo1"),
+    Post("text6", "text.", "seo1"),
+    Post("text7", "text.", "kim2"),
+    Post("text8", "texttext.", "kim2"),
+    Post("text9", "texttext.", "kim2")
 ]
 
 # 회원목록 출력
@@ -50,9 +50,9 @@ print("회원 목록:")
 for member in members:
     member.display()
 
-#특정조건 검색
+# 특정조건 검색
 
-username = "김한규"
+username = "kim1"
 print(f"{username} 작성 게시물:")
 for post in posts:
     if post.author == username:
@@ -72,8 +72,6 @@ print("════════════ ೋღ 🌺 ღೋ ═════�
 print("\t퍼스트 코팅 : 회원과 게시물을 관리")
 print("════════════ ೋღ 🌺 ღೋ ════════════")
 main_pointer = input("회원 관리(1)\n게시물 관리(2)\n종료(3)\n이동 하시려는 곳을 입력해주세요 : ")
-member_info = []
-post_info = []
 print_content = [
     ['회원 이름:', '회원 아이디:', '회원 비밀번호:', '회원'],
     ['게시물 제목:', '게시물 내용:', '작성자:', '게시물']
@@ -98,9 +96,9 @@ while main_pointer != '3':
     while sub_pointer != '5':
         # 생성 시 member_info 혹은 post_info 변수가 변경 되므로 밖이 아닌 안에 두어 업데이트 감지
         if main_pointer == '1':
-            all_print = member_info
+            all_print = members
         else:
-            all_print = post_info
+            all_print = posts
         # 현재 위치의 타이틀을 \t\t\t 후 중앙 정렬 하여 노출
         checks2 = int(sub_pointer) - 1
         if int(sub_pointer) <= 4:
@@ -111,14 +109,22 @@ while main_pointer != '3':
         if sub_pointer == '1':
             # Member 등록 or Post 생성
             a = input(f"{print_content[checks][0]}")
-            b = input(f"{print_content[checks][1]}")
+            if checks == 0:
+                while True:
+                    b = input(f"{print_content[checks][1]}")
+                    if any(member.username == b for member in members):
+                        print("중복된 아이디입니다. 다른 아이디를 입력해주세요.")
+                    else:
+                        break
+            else:
+                b = input(f"{print_content[checks][1]}")
             c = input(f"{print_content[checks][2]}")
             # Member 등록 or Post 생성 예외 처리 부분 작성 필요
             change_ok = True
             if main_pointer == '1':
-                member_info.append(Member(a, b, c))
+                members.append(Member(a, b, c))
             else:
-                post_info.append(Post(a, b, c))
+                posts.append(Post(a, b, c))
 
         elif sub_pointer == '2':
             # Member or Post 전체를 가져와 출력
@@ -126,14 +132,16 @@ while main_pointer != '3':
                 value.display()
         elif sub_pointer == '3':
             # Member의 이름 or Post의 제목 에 입력한 값이 포함 되면 출력
-            search_value = input(f"찾는 {print_content[int(main_pointer) - 1][0]}")
+            search_value = input(
+                f"찾는 {print_content[int(main_pointer) - 1][0]}")
             for value in all_print:
                 if (main_pointer == '1' and search_value in value.name) or (
                         main_pointer == '2' and search_value in value.title):
                     value.display()
         elif sub_pointer == '4':
             # Member의 아이디 or Post의 내용 에 입력한 값이 포함 되면 출력
-            search_value = input(f"찾는 {print_content[int(main_pointer) - 1][1]}")
+            search_value = input(
+                f"찾는 {print_content[int(main_pointer) - 1][1]}")
             for value in all_print:
                 if (main_pointer == '1' and search_value in value.username) or (
                         main_pointer == '2' and search_value in value.content):
