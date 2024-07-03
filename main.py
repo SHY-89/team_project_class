@@ -118,6 +118,7 @@ while main_pointer != '3':
                         break
             else:
                 b = input(f"{print_content[checks][1]}")
+            
             c = input(f"{print_content[checks][2]}")
             # Member 등록 or Post 생성 예외 처리 부분 작성 필요
             change_ok = True
