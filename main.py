@@ -9,6 +9,7 @@ class Member:
         print(f"이름 : {self.name}\n아이디 : {self.username}")
 
 
+# Post 클래스
 class Post:
     def __init__(self, title, content, author):
         self.title = title
