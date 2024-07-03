@@ -40,6 +40,8 @@
 
 개발사항
 
-	- Member class 개발 대기
-	- Post class 개발 대기
-	- 추가 요구사항 개발 대기
+	- Member class 개발
+	- Post class 개발
+    - Member,Post 작동 테스트
+    - 비밀번호 해시화
+	- 추가 요구사항 개발
