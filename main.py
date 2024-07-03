@@ -13,7 +13,9 @@ class Member:
 class Post:
     ###
 
-# ----- 코드 실행 ------
+    # ----- 코드 실행 ------
+
+
 members = []
 posts = []
 
