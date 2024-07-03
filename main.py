@@ -57,25 +57,9 @@ while main_pointer != '3':
             c = input(f"{print_content[int(main_pointer)-1][2]}")
             change_ok = True
             if main_pointer == '1':
-                for check_member in member_info:
-                    if check_member.username == b:
-                        change_ok = False
-                        break
-                if change_ok:
-                    member_info.append(Member(a,b,c))
-                    print("등록 되었습니다.")
-                else:
-                    print("동일한 아이디를 가진 유저가 있습니다.")
+                member_info.append(Member(a,b,c))
             else:
-                for check_member in member_info:
-                    if check_member.name == c:
-                        change_ok = False
-                        break
-                if not change_ok:
-                    post_info.append(Post(a, b, c))
-                    print("등록 되었습니다.")
-                else:
-                    print("입력 하신 작성자의 이름을 가지 유저가 없습니다.")
+                post_info.append(Post(a, b, c))
 
         elif sub_pointer == '2':
             for value in all_print:
