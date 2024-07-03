@@ -68,9 +68,9 @@ for post in posts:
 
 
 # commnd control code
-print("════════════ ೋღ 🌺 ღೋ ════════════")
-print("\t퍼스트 코팅 : 회원과 게시물을 관리")
-print("════════════ ೋღ 🌺 ღೋ ════════════")
+print("{0:═^40}".format(" ೋღ 🌺 ღೋ "))
+print("{0:^40}".format("퍼스트 코팅 : 회원과 게시물을 관리"))
+print("{0:═^40}".format(" ೋღ 🌺 ღೋ "))
 main_pointer = input("회원 관리(1)\n게시물 관리(2)\n종료(3)\n이동 하시려는 곳을 입력해주세요 : ")
 print_content = [
     ['회원 이름:', '회원 아이디:', '회원 비밀번호:', '회원'],
@@ -78,7 +78,7 @@ print_content = [
 ]
 print_title = [
     ['회원 등록', '회원 목록', '회원 이름 검색', '회원 아이디 검색'],
-    ['게시물 등록', '게시물 목록', '게시물 제목 검색', '게시물 내용 검색']
+    ['게시물 등록', '게시물 목록', '게시물 제목 검색', '게시물 아이디 검색']
 ]
 while main_pointer != '3':
     checks = int(main_pointer) - 1
@@ -89,7 +89,7 @@ while main_pointer != '3':
         continue
     # sub_pointer의 input 부분이 길어짐에 따라 길이를 줄이기 위해 show_title 변수 선언
     show_title = print_content[checks][3]
-    print("════════════ ೋღ 🌺 ღೋ ════════════")
+    print("{0:═^40}".format(" ೋღ 🌺 ღೋ "))
     sub_pointer = input(
         f"{show_title} 생성(1)\n{show_title} 목록(2)\n{show_title} 이름 검색(3)\n{show_title} 아이디 검색(4)\n메인이동(5)"
         f"\n이동 하시려는 곳을 입력해주세요 : ")
@@ -102,9 +102,10 @@ while main_pointer != '3':
         # 현재 위치의 타이틀을 \t\t\t 후 중앙 정렬 하여 노출
         checks2 = int(sub_pointer) - 1
         if int(sub_pointer) <= 4:
-            print("════════════ ೋღ 🌺 ღೋ ════════════")
-            print("\t\t\t{:^13}".format(print_title[checks][checks2]))
-            print("════════════ ೋღ 🌺 ღೋ ════════════")
+            print("{0:═^40}".format(" ೋღ 🌺 ღೋ "))
+            print("{0:^40}".format(print_title[checks][checks2]))
+            print("{0:═^40}".format(" ೋღ 🌺 ღೋ "))
+
         if sub_pointer == '1':
             # Member 등록 or Post 생성
             a = input(f"{print_content[checks][0]}")
@@ -135,8 +136,11 @@ while main_pointer != '3':
 
         elif sub_pointer == '2':
             # Member or Post 전체를 가져와 출력
+            print(f"총 {len(all_print)}건이 있습니다.")
             for value in all_print:
+                print("{0:═^40}".format(" ೋღ 🌺 ღೋ "))
                 value.display()
+            print("{0:═^40}".format(" ೋღ 🌺 ღೋ "))
         elif sub_pointer == '3':
             # Member의 이름 or Post의 제목 에 입력한 값이 포함 되면 출력
             search_value = input(
@@ -144,14 +148,15 @@ while main_pointer != '3':
             for value in all_print:
                 if (main_pointer == '1' and search_value in value.name) or (
                         main_pointer == '2' and search_value in value.title):
+                    print("{0:═^40}".format(" ೋღ 🌺 ღೋ "))
                     value.display()
         elif sub_pointer == '4':
             # Member의 아이디 or Post의 내용 에 입력한 값이 포함 되면 출력
             search_value = input(
-                f"찾는 {print_content[int(main_pointer) - 1][1]}")
+                f"찾는 {print_content[int(main_pointer) - 1][2]}")
             for value in all_print:
                 if (main_pointer == '1' and search_value in value.username) or (
-                        main_pointer == '2' and search_value in value.content):
+                        main_pointer == '2' and search_value in value.author):
                     value.display()
         elif sub_pointer != '5':
             # 1~5 까지의 숫자만 입력 받기에 그 외 입력시 다시 입력 받기
@@ -159,5 +164,5 @@ while main_pointer != '3':
         sub_pointer = input(
             f"{show_title} 생성(1)\n{show_title} 목록(2)\n{show_title} 이름 검색(3)\n{show_title} 아이디 검색(4)\n메인이동(5)"
             f"\n이동 하시려는 곳을 입력해주세요 : ")
-    print("════════════ ೋღ 🌺 ღೋ ════════════")
+    print("{0:═^40}".format(" ೋღ 🌺 ღೋ "))
     main_pointer = input("회원 관리(1)\n게시물 관리(2)\n종료(3)\n이동 하시려는 곳을 입력해주세요 : ")
