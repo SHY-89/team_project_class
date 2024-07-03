@@ -24,67 +24,45 @@ class Post(Member):
     def display(self):
         print(f'작성자: {self.author} \n제목: {self.title} \n내용: {self.content}')
 
-# 회원 추가
-def add_member(name, username, password):
-    member = Member(name, username, password)
-    members.append(member)
-
-def add_post(title, content, author_username):
-    # 회원 목록 확인
-    author = next((member for member in members if member.username == author_username), None)
-    if author:
-        post = Post(title, content, author.name)
-        posts.append(post)
-        print(f"'{title}' 등록완료")
-    else:
-        print("회원등록필요.")
-
 # ----- 코드 실행 ------
-members = []
-posts = []
+members = [
+    Member("김한규", "kim1", "1234"),
+    Member("서영환", "seo1", "1234"),
+    Member("김동민", "kim2", "1234")
+]
 
-# 회원 인스턴스 추가
-add_member("김한규", "kim1", "1234")
-add_member("서영환", "seo1", "1234")
-add_member("김동민", "kim2", "1234")
+posts = [
+    Post("text", "text.", "김한규"),
+    Post("text", "text.", "김한규"),
+    Post("text", "text.", "김한규"),
+    Post("text", "text.", "서영환"),
+    Post("text", "text.", "서영환"),
+    Post("text", "text.", "서영환"),
+    Post("text", "text.", "김동민"),
+    Post("text", "text.", "김동민"),
+    Post("text", "text.", "김동민")
+]
 
 # 회원목록 출력
 print("회원 목록:")
 for member in members:
     member.display()
 
-# 게시물 추가
-add_post("text", "text.", "kim1")
-add_post("text", "text.", "kim1")
-add_post("text", "text.", "kim1")
-
-add_post("text", "text.", "seo1")
-add_post("text", "text.", "seo1")
-add_post("text", "text.", "seo1")
-
-add_post("text", "text.", "kim2")
-add_post("text", "text.", "kim2")
-add_post("text", "text.", "kim2")
-
 
 #특정조건 검색
 
-def print_user(username):
-    print(f"{username} 작성 게시물:")
-    for post in posts:
-        if post.author == username:
-            print(post.title)
-
-print_user("김한규")
+username = "김한규"
+print(f"{username} 작성 게시물:")
+for post in posts:
+    if post.author == username:
+        print(post.title)
 
 
-def print_keyword(keyword):
-    print(f"'{keyword}' 포함된 게시물:")
-    for post in posts:
-        if keyword in post.content:
-            print(post.title)
-
-print_keyword("text")
+keyword = "text"
+print(f"'{keyword}' 포함된 게시물:")
+for post in posts:
+    if keyword in post.content:
+        print(post.title)
 
 
 # TODO : 코드 구현이 필요합니다.
