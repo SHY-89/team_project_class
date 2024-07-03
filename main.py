@@ -10,8 +10,15 @@ class Member:
 
 
 # Post 클래스
-class Post:
-    ###
+class Post(Member):
+    def __init__(self, title, content, username):
+        self.title = title
+        self.content = content
+        super().__init__(username)
+
+    def display(self):
+        print(f'작성자: {self.username} \n제목: {self.title} \n내용: {self.content}')
+
 
 # ----- 코드 실행 ------
 members = []
