@@ -11,14 +11,7 @@ class Member:
 
 # Post 클래스
 class Post:
-    def __init__(self, title, content, author):
-        self.title = title
-        self.content = content
-        self.author = author
-
-    def display(self):
-        print(f'제목: {self.title} \n내용: {self.content}')
-
+    ###
 
 # ----- 코드 실행 ------
 members = []
