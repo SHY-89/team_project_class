@@ -19,7 +19,6 @@ class Post(Member):
     def display(self):
         print(f'작성자: {self.username} \n제목: {self.title} \n내용: {self.content}')
 
-
     # ----- 코드 실행 ------
 
 
