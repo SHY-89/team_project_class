@@ -78,7 +78,7 @@ print_content = [
 ]
 print_title = [
     ['회원 등록', '회원 목록', '회원 이름 검색', '회원 아이디 검색'],
-    ['게시물 등록', '게시물 목록', '게시물 제목 검색', '게시물 내용 검색']
+    ['게시물 등록', '게시물 목록', '게시물 제목 검색', '게시물 아이디 검색']
 ]
 while main_pointer != '3':
     checks = int(main_pointer) - 1
@@ -140,14 +140,15 @@ while main_pointer != '3':
             for value in all_print:
                 if (main_pointer == '1' and search_value in value.name) or (
                         main_pointer == '2' and search_value in value.title):
+                    print("{0:═^40}".format(" ೋღ 🌺 ღೋ "))
                     value.display()
         elif sub_pointer == '4':
             # Member의 아이디 or Post의 내용 에 입력한 값이 포함 되면 출력
             search_value = input(
-                f"찾는 {print_content[int(main_pointer) - 1][1]}")
+                f"찾는 {print_content[int(main_pointer) - 1][2]}")
             for value in all_print:
                 if (main_pointer == '1' and search_value in value.username) or (
-                        main_pointer == '2' and search_value in value.content):
+                        main_pointer == '2' and search_value in value.author):
                     value.display()
         elif sub_pointer != '5':
             # 1~5 까지의 숫자만 입력 받기에 그 외 입력시 다시 입력 받기
